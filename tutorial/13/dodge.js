@@ -23,7 +23,7 @@ var C = {
 
 //---------------------------------------------------------
 
-class BootState {
+class Boot {
   preload() {
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
@@ -34,7 +34,7 @@ class BootState {
   }
 }
 
-class LoadState {
+class Load {
   preload() {
     console.log("Loading...");
     this.load.image("bg",C.bg.file)
@@ -46,7 +46,7 @@ class LoadState {
   }
 }
 
-class PlayState {
+class Play {
   create() {
     console.log("Entered Play State");
 
@@ -69,9 +69,9 @@ function restart() {
 }
 
 var game = new Phaser.Game(C.game.width,C.game.height);
-game.state.add("Boot",BootState);
-game.state.add("Load",LoadState);
-game.state.add("Play",PlayState);
+game.state.add("Boot",Boot);
+game.state.add("Load",Load);
+game.state.add("Play",Play);
 game.state.start("Boot");
 
 
