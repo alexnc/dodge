@@ -77,6 +77,9 @@ class PlayState {
     this.dodge.animations.add("anim");
     this.dodge.animations.play("anim",C.d.fps,true);
   }
+  update() {
+    console.log("Play.update() called.");
+  }
 }
 
 //---------------------------------------------------------
