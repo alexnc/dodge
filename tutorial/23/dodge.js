@@ -27,7 +27,8 @@ var C = {
     "frames": 2,
     "fps": 10,
     "startx": 160,
-    "starty": 32 // make -32 (off screen) later
+    "starty": -32,
+    "speed": 15
   }
 }
 
@@ -45,19 +46,16 @@ class Boot {
 }
 
 class Load {
-
   preload() {
     console.log("Loading...");
     this.load.image("bg",C.bg.file)
     this.load.spritesheet("player",C.p.file,C.p.width,C.p.height,C.p.frames);
     this.load.spritesheet("dodge",C.d.file,C.d.width,C.d.height,C.d.frames);
   }
-
   create() {
     console.log("Loaded");
     this.state.start("Play")
   }
-
 }
 
 class Play {
@@ -87,13 +85,21 @@ class Play {
 
   update() {
 
+    // player movement
     if (this.cursors.left.isDown) {
       this.player.x -= C.p.speed;
     }
-
     if (this.cursors.right.isDown) {
       this.player.x += C.p.speed;
     } 
+
+    if (this.dodge.y > this.game.height) {
+      this.dodge.y = C.d.starty;
+      let px = (C.d.width * this.dodge.scale.x) / 2;
+      let max = C.game.width - px
+      this.dodge.x = randInt(px,max);
+    }
+    this.dodge.y += C.d.speed;
 
   }
 
@@ -108,6 +114,12 @@ class Play {
 function restart() {
   game.state.start("Boot");
 }
+
+function randInt(min,max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+//---------------------------------------------------------
 
 var game = new Phaser.Game(C.game.width,C.game.height);
 game.state.add("Boot",Boot);

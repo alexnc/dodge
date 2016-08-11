@@ -27,35 +27,41 @@ var C = {
     "frames": 2,
     "fps": 10,
     "startx": 160,
-    "starty": -32,
-    "speed": 15
+    "starty": 32, // make -32 (off screen) later
+    "speed": 20
   }
 }
 
 //---------------------------------------------------------
 
 class Boot {
+
   preload() {
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
   }
+
   create() {
     this.state.start("Load")
   }
+
 }
 
 class Load {
+
   preload() {
     console.log("Loading...");
     this.load.image("bg",C.bg.file)
     this.load.spritesheet("player",C.p.file,C.p.width,C.p.height,C.p.frames);
     this.load.spritesheet("dodge",C.d.file,C.d.width,C.d.height,C.d.frames);
   }
+
   create() {
     console.log("Loaded");
     this.state.start("Play")
   }
+
 }
 
 class Play {
@@ -94,9 +100,6 @@ class Play {
     } 
 
     // fake gravity
-    if (this.dodge.y > this.game.height) {
-      this.dodge.y = C.d.starty
-    }
     this.dodge.y += C.d.speed;
 
   }

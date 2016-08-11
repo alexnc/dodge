@@ -1,11 +1,5 @@
-# Create A Random Number Function
+# Resetting Dodge When It Falls Off Screen
 
-1. Create a `randInt(max)` function that returns a number between
-   0 and `max`
-1. Test your new function from the JavaScript console
-
-* Note: Phaser has the `game.rnd.*` family of functions for dealing
-  with random numbers built in. We create this function to learn
-  JavaScript better since this is commonly needed in many JavaScript
-  web applications that might not have Phaser
+1. Add logic to `Play.update()` to move `dodge` back to top
+1. Change `C.d.starty` to -32 so it starts off the screen
 

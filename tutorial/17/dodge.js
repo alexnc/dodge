@@ -27,25 +27,21 @@ var C = {
     "frames": 2,
     "fps": 10,
     "startx": 160,
-    "starty": 32, // make -32 (off screen) later
-    "speed": 20
+    "starty": 32 // make -32 (off screen) later
   }
 }
 
 //---------------------------------------------------------
 
 class Boot {
-
   preload() {
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
   }
-
   create() {
     this.state.start("Load")
   }
-
 }
 
 class Load {
@@ -91,16 +87,13 @@ class Play {
 
   update() {
 
-    // player movement
     if (this.cursors.left.isDown) {
       this.player.x -= C.p.speed;
     }
+
     if (this.cursors.right.isDown) {
       this.player.x += C.p.speed;
     } 
-
-    // fake gravity
-    this.dodge.y += C.d.speed;
 
   }
 
