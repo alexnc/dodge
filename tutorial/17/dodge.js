@@ -35,30 +35,37 @@ var C = {
 //---------------------------------------------------------
 
 class Boot {
+
   preload() {
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
   }
+
   create() {
     this.state.start("Load")
   }
+
 }
 
 class Load {
+
   preload() {
     console.log("Loading...");
     this.load.image("bg",C.bg.file)
     this.load.spritesheet("player",C.p.file,C.p.width,C.p.height,C.p.frames);
     this.load.spritesheet("dodge",C.d.file,C.d.width,C.d.height,C.d.frames);
   }
+
   create() {
     console.log("Loaded");
     this.state.start("Play")
   }
+
 }
 
 class Play {
+
   create() {
     console.log("Entered Play State");
 
@@ -81,6 +88,7 @@ class Play {
 
     this.cursors = this.input.keyboard.createCursorKeys();
   }
+
   update() {
 
     // player movement
@@ -95,6 +103,11 @@ class Play {
     this.dodge.y += C.d.speed;
 
   }
+
+  render() {
+    game.debug.text("x: " + this.dodge.x + ", y: " + this.dodge.y, 4, 16);
+  }
+
 }
 
 //---------------------------------------------------------

@@ -106,6 +106,10 @@ class Play {
 
   }
 
+  render() {
+    game.debug.text("x: " + this.dodge.x + ", y: " + this.dodge.y, 4, 16);
+  }
+
 }
 
 //---------------------------------------------------------
