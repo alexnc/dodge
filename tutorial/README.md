@@ -1,4 +1,15 @@
-# Create a Basic Phaser HTML5 Game
+# Create a Basic Phaser HTML5 Game with Canvas and JavaScript (ES6)
+
+The [Phaser HTML5 game engine](http://phaser.io) is not only the
+dominant HTML game platform these days but really fun to play around
+with and a great way to learn JavaScript in a less boring way. (It also
+does not get into the HTML5 DOM, which can be heavy and is another
+topic all together).
+
+This tutorial is focused on learning JavaScript ES6 Fundamentals
+with the Phaser game framework. As such some things are done the "hard
+way" on purpose to introduce the concept before covering it with
+a utility function that already exists.
 
 1. [Create GitHub Pages Site](01)
 1. [Setup Phaser](02)
