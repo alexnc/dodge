@@ -1,4 +1,4 @@
-# Create a Basic Phaser HTML5 Game with JavaScript (ES6)
+# Learn JavaScript (ES6) Fundamentals with Phaser HTML5 Game Engine
 
 The [Phaser HTML5 game engine](http://phaser.io) is not only the
 dominant HTML game platform these days but really fun to play around
